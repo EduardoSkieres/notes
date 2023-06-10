@@ -1,0 +1,31 @@
+.note {
+    position: relative;
+}
+
+.done {
+    background-color: #ccff90;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.note-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.note-header {
+    justify-content: center;
+}
+
+.note-content {
+    text-align: left;
+}
+
+.delete-button {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+}
