@@ -1,16 +1,8 @@
 <div *ngIf="router.url === '/dashboard'">
-  <h1 class="heading">Dashboard</h1>
+  <h1 class="heading">Notas</h1>
   <note-create (addedNote)="addedNote($event)"></note-create>
-  <notes-list
-      [noteChange]="noteChange"
-      [deleteNote]="deleteNote"
-      [notes]="notes"
-  ></notes-list>
+  <notes-list [noteChange]="noteChange" [deleteNote]="deleteNote" [notes]="notes"></notes-list>
 </div>
 <div *ngIf="router.url === '/archive'">
-  <archive
-      [noteChange]="noteChange"
-      [deleteNote]="deleteNote"
-      [notes]="notes"
-  ></archive>
+  <archive [noteChange]="noteChange" [deleteNote]="deleteNote" [notes]="notes"></archive>
 </div>
