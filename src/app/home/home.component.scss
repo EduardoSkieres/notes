@@ -1,0 +1,16 @@
+mat-drawer-container {
+  height: 100vh;
+
+  .sidenav {
+    width: 30vh;
+  }
+
+  .sidenav-content {
+    padding: 10px;
+    height: 91.5vh;
+
+    @media screen and (min-width: 992px) {
+      padding: 10px 25vh 10px 25vh;
+    }
+  }
+}

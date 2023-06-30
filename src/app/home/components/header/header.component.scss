@@ -1,0 +1,32 @@
+@import '/src/scss/colors';
+mat-toolbar{
+  background-color: $cor2;
+  height: 8.5vh;
+}
+.title{
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $cor0;
+}
+
+mat-icon, .title{
+  color: $cor0;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+
+  img{
+    height:  100%;
+    width: 100%;
+  }
+}

@@ -1,0 +1,56 @@
+@import '/src/scss/colors';
+
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+      padding-left: 15px;
+}
+
+/*
+ * This padding sets alignment of the nested nodes.
+ */
+.example-tree .mat-nested-tree-node div[role=group] {
+  // padding-left: 20px;
+}
+
+/*
+ * Padding for leaf nodes.
+ * Leaf nodes need to have padding so as to align with other non-leaf nodes
+ * under the same parent.
+ */
+.example-tree div[role=group] > .mat-tree-node {
+  padding-left: 20px;
+}
+mat-tree{
+  padding-left: 15px;
+}
+
+.mat-tree-node{
+  text-decoration: none;
+  color: $cor0;
+  opacity:1;
+  font-family: 'work sans', sans serif;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+
+
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $cor2;
+  height: 8.5vh;
+  padding: 4% 15%;
+
+  img{
+    height:  100%;
+    width: 100%;
+  }
+}

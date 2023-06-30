@@ -18,19 +18,21 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('dash')
     this.noteService.getNotes().subscribe(notes => {
       this.notes = notes as Note[]
-      if(this.router.url === '/dashboard') this.notes.filter(note => !note.isArchived)
-      if(this.router.url === '/archive') this.notes.filter(note => note.isArchived)
+      console.log(this.router.url)
+      if (this.router.url === '') this.notes.filter(note => !note.isArchived)
+      if (this.router.url === '/archive') this.notes.filter(note => note.isArchived)
 
-  })
+    })
 
-    return ;
+    return;
   }
 
   addedNote(newNote: Note): void {
     this.noteService.addNote(newNote)
-      this.notes = this.notes?.concat(newNote);
+    this.notes = this.notes?.concat(newNote);
   }
 
   deleteNote = (note: Note): void => {

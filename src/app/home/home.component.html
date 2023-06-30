@@ -1,0 +1,15 @@
+<mat-drawer-container autosize [hasBackdrop]="true">
+  <mat-drawer #drawer class="sidenav" mode="over">
+    <app-sidenav (title)="changeTitle($event)"></app-sidenav>
+  </mat-drawer>
+  <app-header (drawer)="drawer.toggle()" (signOut)="authService.SignOut()"></app-header>
+
+  <div class="sidenav-content">
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</mat-drawer-container>
+<!-- <app-footer></app-footer> -->
