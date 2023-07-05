@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
 import { NoteCreateComponent } from './components/note-create/note-create.component';
-import { NoteEditComponent } from './components/note-edit/note-edit.component';
 import { NoteComponent } from './components/note/note.component';
 import { NotesListComponent } from './components/notes-list/notes-list.component';
 import { FormsModule } from '@angular/forms';
@@ -20,7 +19,6 @@ import { NotesRoutingModule } from './notes-routing.module';
   declarations: [
     NoteComponent,
     NoteCreateComponent,
-    NoteEditComponent,
     NotesListComponent,
     ArchiveComponent,
     NotesComponent,
@@ -31,7 +29,6 @@ import { NotesRoutingModule } from './notes-routing.module';
     NoteComponent,
     NotesComponent,
     NoteCreateComponent,
-    NoteEditComponent,
     NotesListComponent,
     ArchiveComponent,
     DashboardComponent,

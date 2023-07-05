@@ -1,13 +1,19 @@
+h1 {
+  text-align: center;
+  margin-top: 10px;
+  color: aliceblue;
+}
+
 .form-field {
-    width: 100%;
+  width: 100%;
 }
 
 .note-create-wrapper {
-    margin: 25px auto;
-    max-width: 65%;
+  margin: 25px auto;
+  max-width: 65%;
 }
 
-.edit-actions { 
-    display: flex;
-    justify-content: center;
+.edit-actions {
+  display: flex;
+  justify-content: center;
 }

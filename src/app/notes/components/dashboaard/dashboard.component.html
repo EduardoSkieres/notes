@@ -1,6 +1,12 @@
 <div>
-  <h1 class="heading">Notas</h1>
-  <note-create (addedNote)="addedNote($event)"></note-create>
+  <div id="action-buttons">
+    <h1 class="heading">Notas</h1>
+
+    <button mat-fab extended color="primary" (click)="addOrEdit()">
+      <mat-icon>add</mat-icon>
+      Adicionar
+    </button>
+  </div>
   <notes-list [noteChange]="noteChange" [deleteNote]="deleteNote" [notes]="notes"></notes-list>
 </div>
 <div *ngIf="router.url === '/archive'">

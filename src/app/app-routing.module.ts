@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 import { AuthGuard } from './shared/guard/auth.guard';
-import { NoteEditComponent } from './notes/components/note-edit/note-edit.component';
 import { ArchivedNotesResolver } from './resolvers/archived-notes.resolver';
 import { NotesResolver } from './resolvers/notes.resolver';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: 'register-user', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: 'edit/:id', component: NoteEditComponent, canActivate: [AuthGuard], },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

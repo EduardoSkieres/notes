@@ -1,36 +1,56 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFirestore, AngularFirestoreCollection, QueryFn } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, QueryFn } from '@angular/fire/compat/firestore';
 import { Observable, of } from 'rxjs';
 import { Note } from '../models/note.model';
+import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class NoteService {
 
   private notesCollection: AngularFirestoreCollection<Note>;
-  notes: Observable<Note[]>;
+  public notes: Note[] = [];
+  notes$: Observable<Note[]>;
+  public userId: string;
 
   constructor(
-    private db: AngularFirestore
+    private db: AngularFirestore,
   ) {
-    this.notesCollection = db.collection<Note>('notes');
-    this.notes = this.notesCollection.valueChanges();
-   }
+    this.userId = JSON.parse(localStorage.getItem('user')!).uid;
+    this.notesCollection = db.collection('data').doc(this.userId).collection<Note>('notes');
+    this.notes$ = this.notesCollection.valueChanges();
+  }
 
-   addNote(note: Note) {
-    this.notesCollection.add(note);
-   }
+  addNote(note: Note) {
+    const notaRef: AngularFirestoreDocument<any> = this.db.doc(
+      `data/${this.userId}/notes/${note.id}`
+    );
 
-   updateNote(noteId: string, newData: Partial<Note>) {
-    this.notesCollection.doc(noteId).update(newData);
+    return notaRef.set(note, {
+      merge: true,
+    });
+  }
+
+  updateNote(noteId: string, newData: Partial<Note>) {
+    const notaRef: AngularFirestoreDocument<any> = this.db.doc(
+      `data/${this.userId}/notes/${noteId}`
+    );
+
+    return notaRef.set(newData, {
+      merge: true,
+    });
   }
 
   deleteNote(noteId: string) {
-    this.notesCollection.doc(noteId).delete();
+    const notaRef: AngularFirestoreDocument<any> = this.db.doc(
+      `data/${this.userId}/notes/${noteId}`
+    );
+
+    notaRef.delete();
   }
 
-   getNotes(): Observable<Note[]> {
-    return this.notes;
+  getNotes(): Observable<Note[]> {
+    return this.notes$;
   }
 
   getNote(id: number): Observable<Note[]> {
@@ -55,7 +75,7 @@ export class NoteService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       console.error(error); // log to console instead

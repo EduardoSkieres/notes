@@ -1,16 +1,21 @@
-<mat-card class="note-create-wrapper">
-  <form (ngSubmit)="onSubmit()">
-    <h3>Criar uma nota</h3>
-    <mat-card-content>
-      <mat-form-field class="form-field">
-        <input matInput placeholder="Título" [(ngModel)]="noteTitle" name="noteTitle">
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <textarea matInput placeholder="Descrição" [(ngModel)]="noteDescription" name="noteDescription"></textarea>
-      </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions class="edit-actions">
-      <button type="submit" mat-raised-button color="primary">Salvar</button>
-    </mat-card-actions>
-  </form>
-</mat-card>
+<!-- <mat-card class="note-create-wrapper"> -->
+<form>
+  <h1>Nota</h1>
+  <mat-card-content>
+    <mat-form-field class="form-field">
+      <input matInput placeholder="Título" [(ngModel)]="data.title" name="noteTitle">
+    </mat-form-field>
+    <mat-form-field class="form-field">
+      <textarea matInput placeholder="Descrição" [(ngModel)]="data.description" name="noteDescription"></textarea>
+    </mat-form-field>
+
+    <mat-checkbox [(ngModel)]="data.isDone" name="isDone">Concluída</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.isArchived" name="isArchived"> Arquivada </mat-checkbox>
+  </mat-card-content>
+  <mat-card-actions class="note-actions">
+
+    <button mat-stroked-button (click)="dialogRef.close()">Cancelar</button>
+    <button mat-stroked-button color="primary" (click)="onSubmit()">Salvar</button>
+  </mat-card-actions>
+</form>
+<!-- </mat-card> -->
